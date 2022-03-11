@@ -13,14 +13,51 @@ import java.io.PrintWriter;
  * @author jesusbarros
  */
 public class Persona {
-    protected String Nombre, Identificacion;
-    protected int SalarioBase, HorasTrabajadas, Sueldo;
+    // protected String Nombre, Identificacion;
+    // protected int SalarioBase, HorasTrabajadas, Sueldo;
     
-    public Persona(String Nombre, String Identificacion, int SalarioBase, int HorasTrabajadas, int Sueldo){
-        this.Nombre = Nombre;
-        this.Identificacion = Identificacion;
-        this.SalarioBase = SalarioBase;
-        this.HorasTrabajadas = HorasTrabajadas;
-        this.Sueldo = Sueldo;
+    String nombre;
+    String identificacion;
+    int sueldo;
+    int horasConducidas;
+
+    public Persona(String nombre, String identificacion, int sueldo, int horasConducidas) {
+        this.nombre = nombre;
+        this.identificacion = identificacion;
+        this.sueldo = sueldo;
+        this.horasConducidas = horasConducidas;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    public int getSueldo() {
+        return sueldo;
+    }
+
+    public int getHorasConducidas() {
+        return horasConducidas;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
+
+    public void setSueldo(int sueldo) {
+        this.sueldo = sueldo;
+    }
+
+    public void setHorasConducidad(int horasConducidas) {
+        this.horasConducidas = horasConducidas;
+    }
+    
 }
