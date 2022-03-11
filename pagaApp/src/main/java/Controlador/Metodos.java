@@ -8,6 +8,7 @@ import Modelo.Persona;
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -35,5 +36,33 @@ public class Metodos {
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+    }
+    
+    public DefaultTableModel listaPersonas(){
+        Vector cabeceras = new Vector();
+        cabeceras.addElement("Nombre");
+        cabeceras.addElement("Identificacion");
+        cabeceras.addElement("Sueldo");
+        cabeceras.addElement("Horas Conducidas");
+        
+        DefaultTableModel mdlTabla = new DefaultTableModel(cabeceras,0);
+        
+        try {
+            FileReader fr = new FileReader("Personas.text");
+            BufferedReader br = new BufferedReader(fr);
+            String d;
+            
+            while(null != (d=br.readLine())) {
+                StringTokenizer dato = new StringTokenizer(d,"|");
+                Vector x = new Vector();
+                while(dato.hasMoreTokens()) {
+                    x.addElement(dato.nextToken());
+                }
+                mdlTabla.addRow(x);
+            }
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return mdlTabla;
     }
 }
