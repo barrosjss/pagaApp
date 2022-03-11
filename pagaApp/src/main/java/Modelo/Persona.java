@@ -28,6 +28,10 @@ public class Persona {
         this.horasConducidas = horasConducidas;
     }
 
+    public Persona() {
+        
+    }
+
     public String getNombre() {
         return nombre;
     }
