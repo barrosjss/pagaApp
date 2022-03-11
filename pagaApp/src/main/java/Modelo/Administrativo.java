@@ -36,8 +36,8 @@ public class Administrativo extends Persona {
         try {
             Nomb = Almacen.readLine();
             Identi = Almacen.readLine();
-            salBase = Almacen.readLine();
-            HorasTrb = Almacen.readLine();
+            salBase = Integer.parseInt(Almacen.readLine());
+            HorasTrb = Integer.parseInt(Almacen.readLine());
         } catch(Exception e) {
             
         }
