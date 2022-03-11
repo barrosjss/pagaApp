@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controlador;
+//cambio para probar 
 
 import UI.Admi;
 import UI.InterfazMenu;
