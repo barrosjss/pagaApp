@@ -7,6 +7,7 @@ package UI;
 import Controlador.Metodos;
 import Modelo.Persona;
 import java.util.*;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -190,6 +191,16 @@ public class InterfazAdministrativo extends javax.swing.JFrame {
         persona.setIdentificacion(identificacion);
         persona.setSueldo(Sueldo);
         persona.setHorasConducidad(horasConducidas);
+        
+        metodos.guardar(persona);
+        metodos.guardarArchivo(persona);
+        
+        JOptionPane.showMessageDialog(null,"Registro Exitoso!");
+        
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
