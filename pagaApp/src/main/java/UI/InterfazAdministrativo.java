@@ -60,7 +60,7 @@ public class InterfazAdministrativo extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        seleccion1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,7 +102,18 @@ public class InterfazAdministrativo extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        seleccion1.setBackground(new java.awt.Color(51, 51, 51));
+        seleccion1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione ", "Transporte de personas", "Transporte de mercancía", "Transporte de mercancías peligrosas", " " }));
+        seleccion1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seleccion1ItemStateChanged(evt);
+            }
+        });
+        seleccion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seleccion1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,11 +129,11 @@ public class InterfazAdministrativo extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(seleccion1, javax.swing.GroupLayout.Alignment.LEADING, 0, 1, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(58, Short.MAX_VALUE)
@@ -156,7 +167,7 @@ public class InterfazAdministrativo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(seleccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -180,14 +191,30 @@ public class InterfazAdministrativo extends javax.swing.JFrame {
         String identificacion = jTextField2.getText();
         int Sueldo = Integer.parseInt(jTextField3.getText());
         int horasConducidas = Integer.parseInt(jTextField4.getText());
+        Object tipo = seleccion1.getSelectedItem();
         
         persona.setNombre(nombre);
         persona.setIdentificacion(identificacion);
         persona.setSueldo(Sueldo);
         persona.setHorasConducidas(horasConducidas);
+        persona.setTipoTransporte((String) tipo);
         
         metodos.guardar(persona);
         metodos.guardarArchivo(persona);
+        
+        //if(tipo=="Transporte de personas") {
+        //    JOptionPane.showMessageDialog(null,"Registro Exitoso!");
+        //}
+        int npersonas = 0;
+        int tipotTP = 1;
+        
+        if(tipo == "Transporte de personas") {
+            metodos.calTranspoPersonas(Sueldo, npersonas, tipotTP);
+        } else if (tipo == "Transporte de mercancia") {
+            metodos.calTranspoMercancias(Sueldo);
+        } else if(tipo == "Transporte de mercancias peligrosas") {
+            metodos.calTranspoMercanPeligrosas(Sueldo);
+        }
         
         JOptionPane.showMessageDialog(null,"Registro Exitoso!");
         
@@ -198,6 +225,14 @@ public class InterfazAdministrativo extends javax.swing.JFrame {
         
         jTable1.setModel(metodos.listaPersonas());
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void seleccion1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seleccion1ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_seleccion1ItemStateChanged
+
+    private void seleccion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccion1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_seleccion1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,7 +272,6 @@ public class InterfazAdministrativo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -249,5 +283,7 @@ public class InterfazAdministrativo extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JComboBox seleccion;
+    private javax.swing.JComboBox seleccion1;
     // End of variables declaration//GEN-END:variables
 }
