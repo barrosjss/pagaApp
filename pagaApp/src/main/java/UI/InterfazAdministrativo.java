@@ -182,7 +182,7 @@ public class InterfazAdministrativo extends javax.swing.JFrame {
         persona.setNombre(nombre);
         persona.setIdentificacion(identificacion);
         persona.setSueldo(Sueldo);
-        persona.setHorasConducidad(horasConducidas);
+        persona.setHorasConducidas(horasConducidas);
         
         metodos.guardar(persona);
         metodos.guardarArchivo(persona);

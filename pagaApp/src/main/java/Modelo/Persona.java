@@ -19,12 +19,21 @@ public class Persona {
     String identificacion;
     int sueldo;
     int horasConducidas;
+    
+    int totalSueldo;
+    int transpoPersonas;
+    int transpoMercancias;
+    int TranspoMercanPeligrosas;
 
-    public Persona(String nombre, String identificacion, int sueldo, int horasConducidas) {
+    public Persona(String nombre, String identificacion, int sueldo, int horasConducidas, int totalSueldo, int transpoPersonas, int transpoMercancias, int TranspoMercanPeligrosas) {
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.sueldo = sueldo;
         this.horasConducidas = horasConducidas;
+        this.totalSueldo = totalSueldo;
+        this.transpoPersonas = transpoPersonas;
+        this.transpoMercancias = transpoMercancias;
+        this.TranspoMercanPeligrosas = TranspoMercanPeligrosas;
     }
 
     public Persona() {
@@ -47,6 +56,22 @@ public class Persona {
         return horasConducidas;
     }
 
+    public int getTotalSueldo() {
+        return totalSueldo;
+    }
+
+    public int getTranspoPersonas() {
+        return transpoPersonas;
+    }
+
+    public int getTranspoMercancias() {
+        return transpoMercancias;
+    }
+
+    public int getTranspoMercanPeligrosas() {
+        return TranspoMercanPeligrosas;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -59,8 +84,24 @@ public class Persona {
         this.sueldo = sueldo;
     }
 
-    public void setHorasConducidad(int horasConducidas) {
+    public void setHorasConducidas(int horasConducidas) {
         this.horasConducidas = horasConducidas;
     }
-    
+
+    public void setTotalSueldo(int totalSueldo) {
+        this.totalSueldo = totalSueldo;
+    }
+
+    public void setTranspoPersonas(int transpoPersonas) {
+        this.transpoPersonas = transpoPersonas;
+    }
+
+    public void setTranspoMercancias(int transpoMercancias) {
+        this.transpoMercancias = transpoMercancias;
+    }
+
+    public void setTranspoMercanPeligrosas(int TranspoMercanPeligrosas) {
+        this.TranspoMercanPeligrosas = TranspoMercanPeligrosas;
+    }
+
 }
