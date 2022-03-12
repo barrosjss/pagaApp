@@ -17,6 +17,11 @@ import javax.swing.table.DefaultTableModel;
 public class Metodos {
     Vector vPrincipal = new Vector();
     
+    protected int totalSueldo = 0;
+    protected int transpoPersonas = 0;
+    protected int transpoMercancias = 0;
+    protected int TranspoMercanPeligrosas = 0;
+    
     public void guardar(Persona unaPersona) {
         vPrincipal.addElement(unaPersona);
     }
@@ -31,7 +36,7 @@ public class Metodos {
             pw.print(persona.getNombre());
             pw.print("|"+persona.getIdentificacion());
             pw.print("|"+persona.getSueldo());
-            pw.print("|"+persona.getHorasConducidas());
+            pw.println("|"+persona.getHorasConducidas());
             pw.close();
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -64,5 +69,26 @@ public class Metodos {
             JOptionPane.showMessageDialog(null, e);
         }
         return mdlTabla;
+    }
+    
+    // Adicional existen unos extras de acuerdo al tipo de transporte:
+    
+    public void calTranspoPersonas(int sueldo, int numPersonas, int tipotTP) {
+        // Transporte de personas: extra de $3500 por hora si se trata de un transporte colectivo (más de 9 personas) y $2.500 si no es transporte colectivo.
+        if((tipotTP==1)&&(numPersonas>9)) {
+            transpoPersonas = sueldo+3500;
+        } else if(tipotTP==2) {
+            transpoPersonas = sueldo+2500;
+        }
+    }
+    
+    public void calTranspoMercancias(int sueldo) {
+        // Transporte de mercancía: un extra de $7000 por cada tonelada transportada.
+        transpoMercancias = sueldo+7000;
+    }
+    
+    public void calTranspoMercanPeligrosas(int sueldo) {
+        // Transporte de mercancías peligrosas: igual que el de mercancías más un fijo extra de 150.000 por cada transporte realizado.
+        TranspoMercanPeligrosas = sueldo+150000;
     }
 }

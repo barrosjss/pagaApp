@@ -4,7 +4,6 @@
  */
 package Modelo;
 
-import Controlador.Principal;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 

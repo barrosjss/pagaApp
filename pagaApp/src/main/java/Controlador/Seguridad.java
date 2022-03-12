@@ -6,8 +6,6 @@ package Controlador;
 //cambio para probar 
 
 import UI.Admi;
-import UI.InterfazMenu;
-import UI.InterfazServiciosGenerales;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,11 +28,10 @@ public class Seguridad {
                 res = "Bienvenido " + user;
                 Encontrado = true;
                 JOptionPane.showMessageDialog(null, res, "Inicio de sesion", JOptionPane.INFORMATION_MESSAGE);
-                InterfazMenu ver = new InterfazMenu();
                 Admi cerrar = new Admi();
                 intentos = 0;
-                cerrar.cerrar();
-                ver.setVisible(true);
+                //cerrar.cerrar();
+                //ver.setVisible(true);
                 break;
             }
         }
