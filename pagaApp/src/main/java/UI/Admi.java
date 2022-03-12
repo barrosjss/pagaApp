@@ -51,6 +51,11 @@ public class Admi extends javax.swing.JFrame {
         jLabel3.setText("Contraseña:");
 
         jToggleButton1.setText("Aceptar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Cancelar");
 
@@ -108,6 +113,13 @@ public class Admi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreActionPerformed
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        InterfazAdministrativo interfazAdministrativo = new InterfazAdministrativo();
+        interfazAdministrativo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -152,4 +164,8 @@ public class Admi extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField nombre;
     // End of variables declaration//GEN-END:variables
+
+    private Object InterfazAdministrativo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
